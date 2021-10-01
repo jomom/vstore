@@ -1,0 +1,55 @@
+<%- include('layouts/header'); -%>
+<hr />
+
+<div class="container-fluid" style="margin-top:5rem;">
+    <div class="row">
+
+        <div class="col-lg-3 mt-2">
+            <ul class="list-group">
+                <li class="list-group-item fw-bold ">Browse Categories
+                   <a class=""  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> <i class="fas fa-caret-down float-end"></i></a>
+               </li>
+               <div class="collapse dont-collapse-sm" id="collapseExample">
+                <li class="list-group-item "><a href="/products">All Products</a> </li>
+                <% categories.forEach(function(cat){ %>
+                <li class="list-group-item ">
+                    <a href="/products/<%= cat.slug %>"><%= cat.title %></a>
+                </li>
+                <% }); %>
+            </div>
+        </ul>
+    </div>
+    <div class="col-lg-9 col-sm-12 mt-2">
+       <div class="row row-cols-2 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+        <% products.forEach((p) => { %>
+        <div class="col">
+            <div class="card cardpr h-100 shadow-sm">
+                <% if (p.image == "") { %>
+                <img id="noImage" class="pimage"  src="/images/noImage.jpg" alt="" />
+                <% } else { %>
+                <img src="/images/product_imgs/<%= p.id %>/<%= p.image %>" class="card-img-top cardpr-img-top" alt="...">
+                <% }  %>
+
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span class="float-start badge rounded-pill bg-primary">
+                            <%= p.categorey %>
+                        </span> 
+                        <span class="float-end price-hp pricehppr">
+                            Ksh<%= parseFloat(p.price).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') %>
+                        </span>
+                    </div>
+                    <h5 class="card-title"><%= p.title %></h5>
+                    <div class="text-center my-4">
+                       <a  href="/products/<%= p.categorey %>/<%= p.slug %>"
+                          class="btn btnpr btn-warning btn-warningpr">Shop</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <% }); %>
+      </div>
+  </div>
+</div>
+
+<%- include('layouts/footer'); -%>
