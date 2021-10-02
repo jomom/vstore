@@ -29,5 +29,8 @@
     "passport-local": "^1.0.0",
     "resize-img": "^2.0.0",
     "stripe": "^8.15.0"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
