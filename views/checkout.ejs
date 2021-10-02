@@ -1,6 +1,6 @@
 <%- include('layouts/header'); -%>
 
-
+<div class="container" style="margin-top:5rem;">
 <% if (typeof cart !== "undefined") { %>
 
 <h1 class="page-title">My Cart</h1>
@@ -33,11 +33,11 @@
             <a href="/cart/update/<%= product.title %>?action=remove">-</a>&nbsp;
             <a href="/cart/update/<%= product.title %>?action=clear">Clear</a>&nbsp;
         </td>
-        <td>£<%= sub %></td>
+        <td>Ksh<%= sub.replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></td>
     </tr>
     <% }); %>
     <tr>
-        <td colspan="6" align="right"><b>Total: </b> £<%= parseFloat(total).toFixed(2) %></td>
+        <td colspan="6" align="right"><b>Total: </b> Ksh<%= parseFloat(total).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></td>
     </tr>
     <tr>
         <td colspan="5" align="right">
@@ -93,6 +93,6 @@ $(function() {
 });
     
 </script>
-
+</div>
 
 <%- include('layouts/footer'); -%>

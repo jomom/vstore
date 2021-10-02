@@ -62,7 +62,7 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav me-auto navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/products">Shop</a>
@@ -71,17 +71,7 @@
                         <a class="nav-link" href="#">Trade In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Drop</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                            <li><a class="dropdown-item" href="article.html">Article Details</a></li>
-                            <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="terms.html">Terms Conditions</a></li>
-                            <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
-                        </ul>
+                        <a class="nav-link" href="/pages/about">About</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -106,15 +96,6 @@
             </a>
             
         </form>
-        <% if (user) {%>
-        <a href="/users/logout" class="nav-item nav-link active">Hi, <%= user.username %> ( log out )</a>
-        <% } else {%>
-        <a href="/users/register" class="nav-item nav-link active">Register</a>
-        <a href="/users/login" class="nav-item nav-link">Log In</a>
-        <% }%>
-        <% if (user && user.admin == 1) { %>
-        <a href="/admin/pages" target="_blank" class="nav-item nav-link">Admin Area</a>
-        <% }%>
 
     </div> <!-- end of navbar-collapse -->
 </div> <!-- end of container -->
@@ -140,7 +121,7 @@
 </div>
 </div> <!-- end modal -->
 <!-- errors  -->
-<div class="mt-5" >
+<div style="margin-top:5rem;" >
     <%- messages('messages', locals) %>
 
     <% if (errors) { %>

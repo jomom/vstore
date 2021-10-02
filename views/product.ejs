@@ -1,40 +1,55 @@
 <%- include('layouts/header'); -%>
-
-<h1 class="page-header"><%= p.title %></h1>
-<hr />
-
-<div class="row">
-    
-    
-    <div class="col-xs-12 col-md-5">
-        <% if (p.image == "") { %>
-
-            <img id="noImage" class="pimage"  src="/images/noImage.jpg" alt="" />
-    
-            <% } else { %>
-    
-                <img class="pimage" src="/images/product_imgs/<%= p.id %>/<%= p.image %>" alt="">
-            <% }  %>
-        <br>
-    </div>
-    <div class="col-xs-12 col-md-7">
-        <p><%- p.desc %></p>
-        <p>KSH<%= parseFloat(p.price).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></p>
-        <p> <a class="btn btn-primary"  href="/cart/add/<%= p.slug %> ">Add to cart</a> </p>      
-    </div>
-    <div class="col-xs-12">
-        <ul class="gallery">
-            <% galleryImages.forEach(function(image){ %>
-            <% if (image != "thumbs") { %>
-            <li>
-                <a data-fancybox="gallery" href="/images/product_imgs/<%= p.id %>/gallery/<%= image %>">
-                    <img src="/images/product_imgs/<%= p.id %>/gallery/thumbs/<%= image %>" alt="">
-                </a>
-            </li>
-            <% } %>
-            <% }); %>
-        </ul>
+<div class="container mb-5" style="margin-top:5rem;">
+    <div class="card" style="border: none;overflow: hidden">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image main_image2">
+                    <% if (p.image == "") { %>
+                     <img src="/images/noImage.jpg"  id="main_product_image" width="350">
+                     <% } else { %>
+                      <img   src="/images/product_imgs/<%= p.id %>/<%= p.image %>" id="main_product_image" width="350">
+                      <% }  %>
+                      </div>
+                    <div class="thumbnail_images thumbnail_images2">
+                        <ul id="thumbnail">
+                        <% galleryImages.forEach(function(image){ %>
+                        <% if (image != "thumbs") { %>
+                        <li>
+                        <a data-fancybox="gallery" href="/images/product_imgs/<%= p.id %>/gallery/<%= image %>">
+                        <img onclick="changeImage(this)" src="/images/product_imgs/<%= p.id %>/gallery/thumbs/<%= image %>" width="70">
+                        </li>
+                        <% } %>
+                        <% }); %>
+                        </a>   
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-dark"><%= p.title %></h5> <span class="heart"><i class='bx bx-heart'></i></span>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                        <h6>Description</h6>
+                        <p><%- p.desc %></p>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                        <h6>Features</h6>
+                        <p><%- p.features %></p>
+                    </div>
+                    <h5>Ksh<%= parseFloat(p.price).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></h5>
+                    
+                    <div class="d-flex flex-row mt-5 gap-3">
+                        <a class="btn btn-primary text-decoration-none"  href="/cart/add/<%= p.slug %> ">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 <%- include('layouts/footer'); -%>

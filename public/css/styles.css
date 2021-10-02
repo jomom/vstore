@@ -33,6 +33,47 @@ Colors:
 /**************************/
 /*     General Styles     */
 /**************************/
+
+/*product details page*/
+.thumbnail_images2 ul {
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: 10px
+}
+.thumbnail_images2 ul li {
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid #eee;
+    cursor: pointer;
+    transition: all 0.5s
+}
+
+.thumbnail_images2 ul li:hover {
+    border: 2px solid #000
+}
+.main_image2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    height: 400px;
+    width: 100%;
+    overflow: hidden
+}
+.content p {
+    font-size: 12px
+}
+.right-side {
+    position: relative
+}
+.buttons .btn {
+    height: 50px;
+    width: 150px;
+    border-radius: 0px !important
+}
+/*end product details page*/
 /*card for products*/
 .cardpr {
     background: #fff;

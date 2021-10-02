@@ -83,28 +83,6 @@ var glideHero = new Glide('.hero', {
 glideHero.mount();
 
 
-
-// // products glide
-// var glide = new Glide('.products', {
-//   perView: 3,
-//   perTouch: 3,
-//   touchRatio: 1,
-//   startAt:0,
-//   breakpoints: {
-//     1024: {
-//       perView: 3
-//   },
-//   600: {
-//     perView: 1,
-//     gap:2,
-//     peek:10,
-// }
-// }
-// })
-
-// glide.mount()
-
-
   // end card slides
   /* Card Slider - Swiper */
   var cardSlider = new Swiper('.card-slider', {

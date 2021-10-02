@@ -10,10 +10,12 @@
                    <a class=""  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> <i class="fas fa-caret-down float-end"></i></a>
                </li>
                <div class="collapse dont-collapse-sm" id="collapseExample">
-                <li class="list-group-item "><a href="/products">All Products</a> </li>
+                <li class="list-group-item ">
+                    <a  class="text-decoration-none fw-bolder" href="/products">All Products</a>
+                </li>
                 <% categories.forEach(function(cat){ %>
                 <li class="list-group-item ">
-                    <a href="/products/<%= cat.slug %>"><%= cat.title %></a>
+                    <a class="text-decoration-none fw-bolder" href="/products/<%= cat.slug %>"><%= cat.title %></a>
                 </li>
                 <% }); %>
             </div>
